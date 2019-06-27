@@ -1,4 +1,3 @@
-
 pub trait Num: Copy + num_traits::NumAssign{}
 
 #[derive(Clone, Copy)]
@@ -7,9 +6,9 @@ pub struct Range<T: Num>{
     max: T,
 }
 
-impl<T: Num> Num for Range<T>{
-
-}
+//impl<T: Num> Num for Range<T>{
+//
+//}
 
 
 
