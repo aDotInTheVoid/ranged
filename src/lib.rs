@@ -1,7 +1,9 @@
-pub trait Num: Copy + num_traits::NumAssign{}
+use std::ops::*;
+
+pub trait Num: Copy + num_traits::NumAssign {}
 
 #[derive(Clone, Copy)]
-pub struct Range<T: Num>{
+pub struct Range<T: Num> {
     min: T,
     max: T,
 }
@@ -10,7 +12,15 @@ pub struct Range<T: Num>{
 //
 //}
 
-
+impl<T: Num> Add for Range<T> {
+    type Output = Self;
+    fn add(self, other: Self) -> Self::Output {
+        Range {
+            min: self.min + other.min,
+            max: self.max + other.max,
+        }
+    }
+}
 
 #[cfg(test)]
 mod tests {
