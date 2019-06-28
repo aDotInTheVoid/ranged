@@ -1,6 +1,10 @@
 //! Note: this crate realy wants `const fn`s in traits.  
 
 use std::ops::*;
+
+mod impls;
+pub use impls::*;
+
 mod helpers;
 
 /// Anything that behaves like a number
