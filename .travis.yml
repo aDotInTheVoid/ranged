@@ -1,38 +1,39 @@
+language: rust
 sudo: required
 dist: trusty
-language: rust
 cache: cargo
-
-os:
-    - linux
-    - osx
-    - windows
-    
-rust:
-  - stable
-  - beta
-  - nightly
-   # Minimum suported version
-  - 1.31.1
-  
-matrix:
-  allow_failures:
-    - rust: nightly
-    - os: windows
-  fast_finish: true
 
 addons:
     apt:
         packages:
             - libssl-dev
 
+rust:
+  - stable
+  - beta
+  - nightly
+  - 1.31.1
+  
+matrix:
+  allow_failures:
+    - rust: nightly
+
 before_cache: |
   if [[ "$TRAVIS_RUST_VERSION" == stable ]]; then
     cargo install cargo-tarpaulin -f
   fi
-  
+
+script:
+- cargo clean
+- cargo build
+- cargo test
+
 after_success: |
-  if [[ "$TRAVIS_RUST_VERSION" == stable && "TRAVIS_OS_NAME" == linux ]]; then
+  if [[ "$TRAVIS_RUST_VERSION" == stable ]]; then
+    # Uncomment the following line for coveralls.io
+    # cargo tarpaulin --ciserver travis-ci --coveralls $TRAVIS_JOB_ID
+
+    # Uncomment the following two lines create and upload a report for codecov.io
     cargo tarpaulin --out Xml
     bash <(curl -s https://codecov.io/bash)
   fi
