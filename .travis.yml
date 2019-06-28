@@ -37,3 +37,16 @@ after_success: |
     cargo tarpaulin --out Xml
     bash <(curl -s https://codecov.io/bash)
   fi
+
+before_deploy:
+    - cargo doc --no-deps --document-private-items --release --all
+    
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  local-dir: dist/
+  keep-history: false
+  on:
+    branch: master
+    rust: stable
