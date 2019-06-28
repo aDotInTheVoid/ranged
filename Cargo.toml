@@ -1,6 +1,6 @@
 [package]
 name = "ranged"
-version = "0.1.1-alpha.0"
+version = "0.1.1"
 authors = ["Nixon <nixon.emoony@gmail.com>"]
 edition = "2018"
 repository = "https://github.com/aDotInTheVoid/ranged"
