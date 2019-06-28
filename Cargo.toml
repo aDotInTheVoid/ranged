@@ -3,6 +3,9 @@ name = "ranged"
 version = "0.1.0"
 authors = ["Nixon <nixon.emoony@gmail.com>"]
 edition = "2018"
+repository = "https://github.com/aDotInTheVoid/ranged"
+license = "Apache-2.0"
+description = "Implements math operators for ranges of numbers"
 
 [dependencies]
 num-traits = "0.2.6"
