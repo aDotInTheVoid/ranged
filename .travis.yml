@@ -1,0 +1,22 @@
+os:
+    - linux
+    - osx
+    - windows
+
+sudo: false
+language: rust
+cache: cargo
+
+rust:
+  - stable
+  - beta
+  - nightly
+  - 1.20
+  - 1.10
+  - 1.30
+
+matrix:
+  allow_failures:
+    - rust: nightly
+  fast_finish: true
+
