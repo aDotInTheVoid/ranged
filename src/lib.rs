@@ -1,6 +1,10 @@
-use std::ops::*;
+//! Note: this crate realy wants `const fn`s in traits.  
 
-pub trait Num: Copy + num_traits::NumAssign {}
+use std::ops::*;
+mod helpers;
+
+/// Anything that behaves like a number
+pub trait Num: Copy + num_traits::NumAssign + std::cmp::Ord{}
 
 #[derive(Clone, Copy)]
 pub struct Range<T: Num> {
@@ -8,19 +12,13 @@ pub struct Range<T: Num> {
     max: T,
 }
 
-//impl<T: Num> Num for Range<T>{
+// The goal is to uncoment these lines and have it work
+// We cant impl Num because Num Needs Ord for comparisons to see which args
+// will be min and max. However we cant impl ord for range because overlaping 
+// ranges are unclear
+//impl<T: Num> num_traits::NumAssign for Range<T>{
 //
 //}
-
-impl<T: Num> Add for Range<T> {
-    type Output = Self;
-    fn add(self, other: Self) -> Self::Output {
-        Range {
-            min: self.min + other.min,
-            max: self.max + other.max,
-        }
-    }
-}
 
 #[cfg(test)]
 mod tests {
