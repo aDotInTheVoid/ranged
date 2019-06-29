@@ -45,7 +45,7 @@ deploy:
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
-  local-dir: dist/
+  local-dir: target/doc/
   keep-history: false
   on:
     branch: master
