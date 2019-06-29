@@ -1,3 +1,4 @@
 /target
+/nogit
 **/*.rs.bk
 Cargo.lock
