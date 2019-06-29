@@ -10,11 +10,8 @@ use std::cmp;
 /// Anything that behaves like a number
 pub trait Num: Copy + num_traits::NumAssign + std::cmp::Ord {}
 
-
 /// Hack to impl `T` Everywhere
-impl<T> Num for T where T: Copy + num_traits::NumAssign + std::cmp::Ord{}
-
-
+impl<T> Num for T where T: Copy + num_traits::NumAssign + std::cmp::Ord {}
 
 #[derive(Clone, Copy, PartialEq, Debug)]
 pub struct Ranged<T: Num> {
@@ -22,9 +19,9 @@ pub struct Ranged<T: Num> {
     max: T,
 }
 
-impl<T: Num> Ranged<T>{
-    pub fn new(a:T, b:T) -> Ranged<T> {
-        Ranged{
+impl<T: Num> Ranged<T> {
+    pub fn new(a: T, b: T) -> Ranged<T> {
+        Ranged {
             min: cmp::min(a, b),
             max: cmp::min(a, b),
         }
