@@ -25,7 +25,7 @@ impl<T: Num> Ranged<T> {
     pub fn new(a: T, b: T) -> Ranged<T> {
         Ranged {
             min: cmp::min(a, b),
-            max: cmp::min(a, b),
+            max: cmp::max(a, b),
         }
     }
 }

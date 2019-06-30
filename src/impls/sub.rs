@@ -7,7 +7,7 @@ impl<T: Num> Sub for Ranged<T> {
     fn sub(self, other: Self) -> Self::Output {
         Ranged {
             min: self.min - other.max,
-            max: self.max + other.min,
+            max: self.max - other.min,
         }
     }
 }
