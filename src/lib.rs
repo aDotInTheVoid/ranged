@@ -2,6 +2,8 @@
 
 mod impls;
 pub use impls::*;
+
+
 mod helpers;
 use std::cmp;
 
@@ -36,10 +38,3 @@ impl<T: Num> Ranged<T> {
 //
 //}
 
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
-}
