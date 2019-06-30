@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["helpers",""],["impls",""]],"struct":[["Ranged",""]],"trait":[["Num","Anything that behaves like a number"]]});
