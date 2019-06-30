@@ -15,10 +15,10 @@ mod ranged_ranged {
         let r35 = r(3_i32, 5);
         let r57 = r(5_i32, 7);
 
-        assert_eq!(r35 + r35, r(6, 10));
-        assert_eq!(r57 + r57, r(10, 14));
-        assert_eq!(r35 + r57, r(8, 12));
-        assert_eq!(r57 + r35, r(8, 12));
+        assert_eq!(r35 - r35, r(-2, 2));
+        assert_eq!(r57 - r57, r(-2, 2));
+        assert_eq!(r35 - r57, r(-4, 0));
+        assert_eq!(r57 - r35, r(0, 4));
     }
 
     #[test]
@@ -27,13 +27,13 @@ mod ranged_ranged {
         let r57 = r(5_i32, 7);
         let id = r(0, 0);
 
-        assert_eq!(r35 + id, r35);
-        assert_eq!(r35 + id, r35);
+        assert_eq!(r35 - id, r35);
+        assert_eq!(r35 - id, r35);
 
-        assert_eq!(r57 + id, r57);
-        assert_eq!(r57 + id, r57);
+        assert_eq!(r57 - id, r57);
+        assert_eq!(r57 - id, r57);
 
-        assert_eq!(id + id, id);
+        assert_eq!(id - id, id);
     }
 }
 
@@ -44,10 +44,10 @@ mod ranged_const {
     fn plus_plus() {
         let r35 = r(3_i32, 5);
         let r57 = r(5_i32, 7);
-        assert_eq!(r35 + 7, r(10, 12));
-        assert_eq!(r35 + 1, r(4, 6));
-        assert_eq!(r57 + 7, r(12, 14));
-        assert_eq!(r57 + 1, r(6, 8));
+        assert_eq!(r35 - 7, r(-4, -2));
+        assert_eq!(r35 - 1, r(2, 4));
+        assert_eq!(r57 - 7, r(-2, 0));
+        assert_eq!(r57 - 1, r(4, 6));
     }
 
     #[test]
@@ -56,12 +56,12 @@ mod ranged_const {
         let r57 = r(5_i32, 7);
         let id = 0;
 
-        assert_eq!(r35 + id, r35);
-        assert_eq!(r35 + id, r35);
+        assert_eq!(r35 - id, r35);
+        assert_eq!(r35 - id, r35);
 
-        assert_eq!(r57 + id, r57);
-        assert_eq!(r57 + id, r57);
+        assert_eq!(r57 - id, r57);
+        assert_eq!(r57 - id, r57);
 
-        assert_eq!(id + id, id);
+        assert_eq!(id - id, id);
     }
 }
