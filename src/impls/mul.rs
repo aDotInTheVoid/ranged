@@ -19,3 +19,20 @@ impl<T: Num> Mul for Ranged<T> {
         }
     }
 }
+
+impl<T: Num> Mul<T> for Ranged<T> {
+    type Output = Self;
+    fn mul(self, other: T) -> Self::Output {
+        if other > T::zero() {
+            Ranged {
+                min: self.min * other,
+                max: self.max * other,
+            }
+        } else {
+            Ranged {
+                min: self.max * other,
+                max: self.min * other,
+            }
+        }
+    }
+}
